@@ -1,35 +1,76 @@
 import React from 'react';
 import Meal from './Meal';
-import {NativeModules} from 'react-native';
-import {navigateTo} from '../../Navigation'
-import { FlatList, StyleSheet, View } from 'react-native';
+import {URLs} from '../common/URL';
+import {mealsQuery} from '../graphql/MealsQuery'
+import { ApolloProvider, Query } from 'react-apollo';
+import ApolloClient from 'apollo-boost';
+import { FlatList, StyleSheet, View, Text } from 'react-native';
 const MealsList = () => {
-    const mealsList = [{id:"1", name: 'Philly CheeseSteak Cassarole',url:'https://i.dietdoctor.com/wp-content/uploads/2017/11/DD-546-ketofriedchickenwithbroccoli-2.jpg?auto=compress%2Cformat&w=150&h=225&fit=crop'},
-    {id:"2",name: 'Philly CheeseSteak 2',url:'https://i.dietdoctor.com/wp-content/uploads/2019/01/Rasberry-brownies_Horizontal.jpg?auto=compress%2Cformat&w=400&h=200&fit=crop%20200w'},
-    {id:"3",name: 'Philly CheeseSteak 3',url:'https://i.dietdoctor.com/wp-content/uploads/2017/11/DD-546-ketofriedchickenwithbroccoli-2.jpg?auto=compress%2Cformat&w=150&h=225&fit=crop'},
-    {id:"4",name: 'Philly CheeseSteak 4',url:'https://i.dietdoctor.com/wp-content/uploads/2017/11/DD-546-ketofriedchickenwithbroccoli-2.jpg?auto=compress%2Cformat&w=150&h=225&fit=crop'}]
+  const client = new ApolloClient({ uri: URLs.mealsURL })
+  const QUERY = mealsQuery()
 
+const renderErrorScreen = () => {
+  return (
+    <View style={styles.loaderContainer}> 
+      <Text style={styles.loadingText}>ERROR IN LOADING...</Text>
+    </View>
+  )
+}
+const renderLoadingScreen = () => {
+  return (
+    <View style={styles.loaderContainer}> 
+      <Text style={styles.loadingText}>LOADING...</Text>
+    </View>
+  )
+}
+
+const renderMeals = (freeMealsPlans) => {
+  return(<View style={styles.container}>
+    <FlatList
+      data={freeMealsPlans}
+      keyExtractor={(item) => item.id}
+      renderItem={({item}) => 
+           <Meal item={item}/>
+      }
+    />
+  </View>)
+}
 
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={mealsList}
-        keyExtractor={(item) => item.id}
-        renderItem={({item}) => 
-             <Meal item={item}/>
-        }
-      />
-    </View>
+    <ApolloProvider client={client}>
+        <Query query={QUERY} >
+        {({ loading, error, data }) => {
+          if (loading) return (renderLoadingScreen())
+          if (error) return (renderErrorScreen())
+          if (!error && !loading && data && data.freeMealplans)
+            return(renderMeals(data.freeMealplans))
+        
+          }
+          }
+        </Query>
+    </ApolloProvider>
+
   );
 }
 
 const styles = StyleSheet.create({
     container: {
+      top: 100,
      flex: 1,
      flexDirection: 'column',
-     width:'100%',
-     paddingTop: 22
+     width:'100%'
+    },
+    loaderContainer: {
+
+    alignItems: 'center',
+    
+    justifyContent: 'center'
+    },
+    loadingText: {
+
+      fontSize: 40
     }
+
   });
 
 export default MealsList;

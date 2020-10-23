@@ -21,10 +21,8 @@ class Navigation: NSObject {
       return;
     }
     DispatchQueue.main.async {
-      let navController = UINavigationController(rootViewController: modelVC)
-      navController.modalPresentationStyle = .fullScreen
       let topController = UIApplication.topMostViewController()
-      topController?.present(navController, animated: true, completion: nil)
+      topController?.present(modelVC, animated: true, completion: nil)
     }
   }
   
