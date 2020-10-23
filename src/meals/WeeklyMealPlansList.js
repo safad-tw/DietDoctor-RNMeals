@@ -5,16 +5,18 @@ import {mealsQuery} from '../graphql/MealsQuery'
 import { ApolloProvider, Query } from 'react-apollo';
 import ApolloClient from 'apollo-boost';
 import { FlatList, StyleSheet, View, Text } from 'react-native';
+
 const WeeklyMealPlansList = () => {
+
   const client = new ApolloClient({ uri: URLs.mealsURL })
   const QUERY = mealsQuery()
 
-const renderErrorScreen = () => {
-  return (
-    <View style={styles.loaderContainer}> 
-      <Text style={styles.loadingText}>ERROR IN LOADING...</Text>
-    </View>
-  )
+  const renderErrorScreen = () => {
+    return (
+      <View style={styles.loaderContainer}> 
+        <Text style={styles.loadingText}>ERROR IN LOADING...</Text>
+      </View>
+    )
 }
 const renderLoadingScreen = () => {
   return (
@@ -33,8 +35,8 @@ const renderMeals = (freeMealsPlans) => {
            <DayMealPlan item={item}/>
       }
     />
-  </View>)
-}
+    </View>)
+  }
 
   return (
     <ApolloProvider client={client}>
@@ -44,7 +46,6 @@ const renderMeals = (freeMealsPlans) => {
           if (error) return (renderErrorScreen())
           if (!error && !loading && data && data.freeMealplans)
             return(renderMeals(data.freeMealplans))
-        
           }
           }
         </Query>
@@ -54,23 +55,20 @@ const renderMeals = (freeMealsPlans) => {
 }
 
 const styles = StyleSheet.create({
-    container: {
-      top: 100,
-     flex: 1,
-     flexDirection: 'column',
-     width:'100%'
-    },
-    loaderContainer: {
-
+  container: {
+    top: 100,
+    flex: 1,
+    flexDirection: 'column',
+    width:'100%'
+  },
+  loaderContainer: {
     alignItems: 'center',
-    
     justifyContent: 'center'
-    },
-    loadingText: {
-      fontFamily: "Avenir-Heavy",
-      fontSize: 30
-    }
-
+  },
+  loadingText: {
+    fontFamily: "Avenir-Heavy",
+    fontSize: 30
+  }
   });
 
 export default WeeklyMealPlansList;

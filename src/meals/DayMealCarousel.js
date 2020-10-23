@@ -10,7 +10,8 @@ import Carousel from 'react-native-snap-carousel';
 
 
 export default class DayMealCarousel extends React.Component {
-    constructor(props){
+   
+  constructor(props){
         super(props);
         this.state = {
           activeIndex:0,
@@ -18,7 +19,7 @@ export default class DayMealCarousel extends React.Component {
       }
     }
 
-    _renderItem({item,index}){
+    _renderItem({item}){
         return (
         <TouchableOpacity onPress={ () =>  navigateTo({'screenName': 'DayMealPlan','data':item})}> 
           <View style={styles.carouselContainer}>

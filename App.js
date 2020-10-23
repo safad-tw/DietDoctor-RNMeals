@@ -1,6 +1,5 @@
 
 import React from 'react';
-// import {AppRegistry} from 'react-native';
 import WeeklyMealPlansList from './src/meals/WeeklyMealPlansList';
 import { StyleSheet, View, AppRegistry, Text} from 'react-native';
 

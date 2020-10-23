@@ -4,16 +4,12 @@ import DayMealCarousel from './DayMealCarousel'
 
 class DayMealPlan extends Component {
     render() {
-
       const {item} = this.props
-
       return (
-
         <View style={styles.mealContainer}>
-        <DayMealCarousel schedule={item.schedule}/>
-        <Text style={styles.title}>{item.title}</Text>
+          <DayMealCarousel schedule={item.schedule}/>
+          <Text style={styles.title}>{item.title}</Text>
         </View>
-    
       )
     }
   }
