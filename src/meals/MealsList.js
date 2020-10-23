@@ -67,8 +67,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
     },
     loadingText: {
-
-      fontSize: 40
+      fontFamily: "Avenir-Heavy",
+      fontSize: 30
     }
 
   });

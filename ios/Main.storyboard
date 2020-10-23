@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,28 +18,95 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MealList" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FV2-I8-jbt">
-                                <rect key="frame" x="20" y="419.5" width="374" height="57.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <rect key="frame" x="20" y="61.5" width="374" height="27.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xv8-wD-tr0">
+                                <rect key="frame" x="374" y="64" width="20" height="22"/>
+                                <state key="normal" image="cross-btn"/>
+                                <connections>
+                                    <action selector="close:" destination="d86-XT-9Nf" eventType="touchUpInside" id="ksX-2w-7Mu"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="P6j-NJ-4OU">
+                                <rect key="frame" x="0.0" y="123" width="414" height="773"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mbe-q0-21g">
+                                    <size key="itemSize" width="414" height="247"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MealListCollectionViewCell" id="tRd-yw-Upn" customClass="MealListCollectionViewCell" customModule="RNMeals" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fXL-rm-sCf">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VUO-Sm-JK9">
+                                                    <rect key="frame" x="5" y="5" width="404" height="240"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2W-4u-bHo">
+                                                    <rect key="frame" x="20" y="20" width="374" height="25"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VUO-Sm-JK9" firstAttribute="leading" secondItem="fXL-rm-sCf" secondAttribute="leading" constant="5" id="19h-M0-Aqg"/>
+                                                <constraint firstItem="s2W-4u-bHo" firstAttribute="top" secondItem="fXL-rm-sCf" secondAttribute="top" constant="20" id="6q5-OR-eMr"/>
+                                                <constraint firstItem="VUO-Sm-JK9" firstAttribute="top" secondItem="fXL-rm-sCf" secondAttribute="top" constant="5" id="Wwy-T4-NcG"/>
+                                                <constraint firstAttribute="trailing" secondItem="s2W-4u-bHo" secondAttribute="trailing" constant="20" id="Yon-eH-20M"/>
+                                                <constraint firstAttribute="bottom" secondItem="VUO-Sm-JK9" secondAttribute="bottom" constant="5" id="cFp-2W-7ZU"/>
+                                                <constraint firstAttribute="trailing" secondItem="VUO-Sm-JK9" secondAttribute="trailing" constant="5" id="d2E-2J-qkX"/>
+                                                <constraint firstItem="s2W-4u-bHo" firstAttribute="leading" secondItem="fXL-rm-sCf" secondAttribute="leading" constant="20" id="qBQ-SA-PB1"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="414" height="250"/>
+                                        <connections>
+                                            <outlet property="mealImageView" destination="VUO-Sm-JK9" id="HnK-7U-Bp3"/>
+                                            <outlet property="mealTypeLabel" destination="s2W-4u-bHo" id="5hq-4S-jMZ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="d86-XT-9Nf" id="tyn-Bc-KRU"/>
+                                    <outlet property="delegate" destination="d86-XT-9Nf" id="LU4-mc-NmN"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Oj0-dl-eSZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="FV2-I8-jbt" firstAttribute="centerY" secondItem="Xv8-wD-tr0" secondAttribute="centerY" id="D3W-UD-pB5"/>
                             <constraint firstItem="Oj0-dl-eSZ" firstAttribute="trailing" secondItem="FV2-I8-jbt" secondAttribute="trailing" constant="20" id="EUf-Bp-uPy"/>
-                            <constraint firstItem="FV2-I8-jbt" firstAttribute="centerY" secondItem="2UN-EM-3eT" secondAttribute="centerY" id="Yz2-SB-ntw"/>
+                            <constraint firstItem="P6j-NJ-4OU" firstAttribute="top" secondItem="FV2-I8-jbt" secondAttribute="bottom" constant="34" id="PRq-Yr-QdT"/>
+                            <constraint firstAttribute="bottom" secondItem="P6j-NJ-4OU" secondAttribute="bottom" id="St3-ZM-8zE"/>
+                            <constraint firstItem="Xv8-wD-tr0" firstAttribute="top" secondItem="Oj0-dl-eSZ" secondAttribute="top" constant="20" id="Y6O-gu-aer"/>
+                            <constraint firstItem="P6j-NJ-4OU" firstAttribute="trailing" secondItem="Oj0-dl-eSZ" secondAttribute="trailing" id="aRp-fU-d68"/>
                             <constraint firstItem="FV2-I8-jbt" firstAttribute="centerX" secondItem="2UN-EM-3eT" secondAttribute="centerX" id="jwX-lq-hdR"/>
+                            <constraint firstItem="Oj0-dl-eSZ" firstAttribute="trailing" secondItem="Xv8-wD-tr0" secondAttribute="trailing" constant="20" id="jxa-UX-z1Y"/>
                             <constraint firstItem="FV2-I8-jbt" firstAttribute="leading" secondItem="Oj0-dl-eSZ" secondAttribute="leading" constant="20" id="pPD-bb-Q8k"/>
+                            <constraint firstItem="P6j-NJ-4OU" firstAttribute="leading" secondItem="Oj0-dl-eSZ" secondAttribute="leading" id="sDN-0e-Js6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mealListCV" destination="P6j-NJ-4OU" id="YHa-nN-pa4"/>
+                        <outlet property="titleLbl" destination="FV2-I8-jbt" id="KOe-kP-sZh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qBP-6b-Ft6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-122" y="46"/>
+            <point key="canvasLocation" x="-123.18840579710145" y="45.535714285714285"/>
         </scene>
     </scenes>
     <resources>
+        <image name="cross-btn" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

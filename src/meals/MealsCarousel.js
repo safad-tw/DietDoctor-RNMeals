@@ -20,7 +20,7 @@ export default class MyCarousel extends React.Component {
 
     _renderItem({item,index}){
         return (
-        <TouchableOpacity onPress={ () =>  navigateTo('NativeDemo')}> 
+        <TouchableOpacity onPress={ () =>  navigateTo({'screenName': 'DayMealPlan','data':item})}> 
           <View style={styles.carouselContainer}>
             <ProgressiveImage
           source={{ uri: MealImageConstructor(item.dinner)}}
@@ -79,8 +79,8 @@ const styles = StyleSheet.create({
      },
      title: {
        padding: 10,
-       fontFamily: "SFUIDisplay-Bold",
-       fontSize: 16,
+       fontFamily: "Avenir-Heavy",
+       fontSize: 20,
        height: 44,
        position:'absolute',
        bottom: 20,

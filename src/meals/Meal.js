@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
      },
      title: {
        paddingTop: 10,
-       fontFamily: "SFUIDisplay-Bold",
+       fontFamily: "Avenir-Heavy",
        fontSize: 18,
        height: 44,
        position:'absolute',

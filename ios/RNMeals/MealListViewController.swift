@@ -7,25 +7,73 @@
 
 import UIKit
 
-class MealListViewController: UIViewController {
+struct CellID {
+  static let MealListCollectionViewCellId = "MealListCollectionViewCell"
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      self.view.backgroundColor = UIColor.red
-      
+protocol MealListViewControllerProtocol: class {
+  var interactor: MealListInteractorProtocol? { get set }
+  func showDayMealPlan(_ dayMealPlan: DayMealPlan?) 
+}
 
-        // Do any additional setup after loading the view.
+class MealListViewController: UIViewController, MealListViewControllerProtocol {
+  
+  @IBOutlet weak var titleLbl: UILabel!
+  @IBOutlet weak var mealListCV: UICollectionView!
+  
+  var interactor: MealListInteractorProtocol?
+  var mealPlan: DayMealPlan?
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+    layout.scrollDirection = .horizontal
+    layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 250)
+    layout.minimumInteritemSpacing = 0.0
+    layout.minimumLineSpacing = 1.0
+    self.mealListCV.collectionViewLayout = layout
+    interactor?.getDayMealPlan()
+    // Do any additional setup after loading the view.
+  }
+
+  @IBAction func close(_ sender: Any) {
+    self.dismiss(animated: true, completion: nil)
+  }
+ 
+}
+
+extension MealListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+  
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 1
+  }
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return 2
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellID.MealListCollectionViewCellId, for: indexPath) as! MealListCollectionViewCell
+    switch indexPath.item {
+    case 0:
+      cell.setData(planner: self.mealPlan?.lunch)
+    case 1:
+      cell.setData(planner: self.mealPlan?.dinner)
+    default:
+      break;
     }
-    
+    return cell
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+  }
+  
+}
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+extension MealListViewController{
+  func showDayMealPlan(_ dayMealPlan: DayMealPlan?) {
+    self.mealPlan = dayMealPlan
+    self.titleLbl.text = "Meal plans for " + (dayMealPlan?.name ?? "")
+    self.mealListCV.reloadData()
+  }
 }
