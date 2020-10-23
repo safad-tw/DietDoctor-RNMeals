@@ -1,11 +1,11 @@
 import React from 'react';
-import Meal from './Meal';
+import DayMealPlan from './DayMealPlan';
 import {URLs} from '../common/URL';
 import {mealsQuery} from '../graphql/MealsQuery'
 import { ApolloProvider, Query } from 'react-apollo';
 import ApolloClient from 'apollo-boost';
 import { FlatList, StyleSheet, View, Text } from 'react-native';
-const MealsList = () => {
+const WeeklyMealPlansList = () => {
   const client = new ApolloClient({ uri: URLs.mealsURL })
   const QUERY = mealsQuery()
 
@@ -30,7 +30,7 @@ const renderMeals = (freeMealsPlans) => {
       data={freeMealsPlans}
       keyExtractor={(item) => item.id}
       renderItem={({item}) => 
-           <Meal item={item}/>
+           <DayMealPlan item={item}/>
       }
     />
   </View>)
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
 
   });
 
-export default MealsList;
+export default WeeklyMealPlansList;

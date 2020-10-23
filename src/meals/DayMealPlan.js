@@ -1,29 +1,19 @@
 import React, { Component } from 'react';
-import {NativeModules} from 'react-native';
-import { TouchableOpacity, View, Image, Text,StyleSheet } from 'react-native';
-import MealsCarousel from './MealsCarousel'
-import ProgressiveImage from  '../common/ProgressiveImage'
+import {View, Text,StyleSheet } from 'react-native';
+import DayMealCarousel from './DayMealCarousel'
 
-class Meal extends Component {
+class DayMealPlan extends Component {
     render() {
+
       const {item} = this.props
 
-      const handleClick  = ()  => {
-        NativeModules.Navigation.navigateTo('NativeDemo')
-      }
-
-      const compressImageUrl = (compressImageUrl) =>  {
-        return 'https://i.dietdoctor.com/wp-content/uploads/2019/01/Rasberry-brownies_Horizontal.jpg?auto=compress%2Cformat&w=400&h=200&fit=crop%20200w'
-      }
-  
       return (
-        // <TouchableOpacity onPress={handleClick}> 
-        
+
         <View style={styles.mealContainer}>
-        <MealsCarousel schedule={item.schedule}/>
+        <DayMealCarousel schedule={item.schedule}/>
         <Text style={styles.title}>{item.title}</Text>
         </View>
-        // </TouchableOpacity>
+    
       )
     }
   }
@@ -60,4 +50,4 @@ const styles = StyleSheet.create({
      }
   })
 
-  export default Meal;
+  export default DayMealPlan;

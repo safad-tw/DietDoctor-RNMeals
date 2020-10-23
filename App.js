@@ -1,7 +1,7 @@
 
 import React from 'react';
 // import {AppRegistry} from 'react-native';
-import MealsList from './src/meals/MealsList';
+import WeeklyMealPlansList from './src/meals/WeeklyMealPlansList';
 import { StyleSheet, View, AppRegistry, Text} from 'react-native';
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
       <View style={styles.navBar}>
          <Text style={styles.title}>Weekly Meal Plans</Text>
       </View>
-      <MealsList />
+      <WeeklyMealPlansList />
     </View>
   );
 }

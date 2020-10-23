@@ -9,7 +9,7 @@ import {MealImageConstructor} from  '../common/ImageHelper'
 import Carousel from 'react-native-snap-carousel';
 
 
-export default class MyCarousel extends React.Component {
+export default class DayMealCarousel extends React.Component {
     constructor(props){
         super(props);
         this.state = {
