@@ -4,6 +4,9 @@
  
 # App Architecture
 
+ - Designed first screen using react-native and second screen using swift UIKit framework.
+ - RCTBridgeModule used to pass data from RN to swift class eg: Refer NavigationModule.m in ios folder.
+
 #### React Native
  - Used javascript(.js) and typescript(.tsx) to create class and function       component
  - Used Apollo to query GraphQL.
