@@ -7,22 +7,22 @@
 
 import Foundation
 
-protocol MealListInteractorProtocol {
+protocol DayMealListInteractorProtocol {
   func getDayMealPlan()
 }
 
-class MealListInteractor {
+class DayMealListInteractor {
   
   var dayMealPlan:DayMealPlan
-  var presenter: MealListPresenterProtocol?
+  var presenter: DayMealListPresenterProtocol?
   
-  init(dayMealPlan: DayMealPlan, presenter: MealListPresenterProtocol) {
+  init(dayMealPlan: DayMealPlan, presenter: DayMealListPresenterProtocol) {
     self.dayMealPlan = dayMealPlan
     self.presenter = presenter
   }
 }
 
-extension MealListInteractor: MealListInteractorProtocol {
+extension DayMealListInteractor: DayMealListInteractorProtocol {
   
   func getDayMealPlan() {
     self.presenter?.showDayMealPlan(dayMealPlan)

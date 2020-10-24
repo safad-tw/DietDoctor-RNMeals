@@ -11,17 +11,17 @@ struct CellID {
   static let MealListCollectionViewCellId = "MealListCollectionViewCell"
 }
 
-protocol MealListViewControllerProtocol: class {
-  var interactor: MealListInteractorProtocol? { get set }
+protocol DayMealListViewControllerProtocol: class {
+  var interactor: DayMealListInteractorProtocol? { get set }
   func showDayMealPlan(_ dayMealPlan: DayMealPlan?) 
 }
 
-class MealListViewController: UIViewController, MealListViewControllerProtocol {
+class DayMealListViewController: UIViewController, DayMealListViewControllerProtocol {
   
   @IBOutlet weak var titleLbl: UILabel!
   @IBOutlet weak var mealListCV: UICollectionView!
   
-  var interactor: MealListInteractorProtocol?
+  var interactor: DayMealListInteractorProtocol?
   var mealPlan: DayMealPlan?
   
   override func viewDidLoad() {
@@ -42,7 +42,7 @@ class MealListViewController: UIViewController, MealListViewControllerProtocol {
  
 }
 
-extension MealListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension DayMealListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
   
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 1
@@ -52,7 +52,7 @@ extension MealListViewController: UICollectionViewDataSource, UICollectionViewDe
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellID.MealListCollectionViewCellId, for: indexPath) as! MealListCollectionViewCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellID.MealListCollectionViewCellId, for: indexPath) as! DayMealListCollectionViewCell
     switch indexPath.item {
     case 0:
       cell.setData(planner: self.mealPlan?.lunch)
@@ -70,7 +70,7 @@ extension MealListViewController: UICollectionViewDataSource, UICollectionViewDe
 }
 
 
-extension MealListViewController{
+extension DayMealListViewController{
   func showDayMealPlan(_ dayMealPlan: DayMealPlan?) {
     self.mealPlan = dayMealPlan
     self.titleLbl.text = "Meal plans for " + (dayMealPlan?.name ?? "")

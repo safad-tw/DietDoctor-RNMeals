@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Meal List View Controller-->
+        <!--Day Meal List View Controller-->
         <scene sceneID="89R-lf-AXS">
             <objects>
-                <viewController storyboardIdentifier="MealListViewController" id="d86-XT-9Nf" customClass="MealListViewController" customModule="RNMeals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MealListViewController" id="d86-XT-9Nf" customClass="DayMealListViewController" customModule="RNMeals" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2UN-EM-3eT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,7 +40,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MealListCollectionViewCell" id="tRd-yw-Upn" customClass="MealListCollectionViewCell" customModule="RNMeals" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MealListCollectionViewCell" id="tRd-yw-Upn" customClass="DayMealListCollectionViewCell" customModule="RNMeals" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fXL-rm-sCf">
@@ -50,16 +50,25 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VUO-Sm-JK9">
                                                     <rect key="frame" x="5" y="5" width="404" height="240"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2W-4u-bHo">
-                                                    <rect key="frame" x="20" y="20" width="374" height="25"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2W-4u-bHo">
+                                                    <rect key="frame" x="20" y="20" width="374" height="0.0"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25j-NG-CbT">
+                                                    <rect key="frame" x="20" y="228" width="374" height="0.0"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-MediumOblique" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="VUO-Sm-JK9" firstAttribute="leading" secondItem="fXL-rm-sCf" secondAttribute="leading" constant="5" id="19h-M0-Aqg"/>
+                                                <constraint firstAttribute="bottom" secondItem="25j-NG-CbT" secondAttribute="bottom" constant="22" id="3Da-bv-Fbe"/>
+                                                <constraint firstItem="25j-NG-CbT" firstAttribute="leading" secondItem="fXL-rm-sCf" secondAttribute="leading" constant="20" symbolic="YES" id="5EG-EL-UO8"/>
                                                 <constraint firstItem="s2W-4u-bHo" firstAttribute="top" secondItem="fXL-rm-sCf" secondAttribute="top" constant="20" id="6q5-OR-eMr"/>
+                                                <constraint firstAttribute="trailing" secondItem="25j-NG-CbT" secondAttribute="trailing" constant="20" symbolic="YES" id="V1J-Fs-A5e"/>
                                                 <constraint firstItem="VUO-Sm-JK9" firstAttribute="top" secondItem="fXL-rm-sCf" secondAttribute="top" constant="5" id="Wwy-T4-NcG"/>
                                                 <constraint firstAttribute="trailing" secondItem="s2W-4u-bHo" secondAttribute="trailing" constant="20" id="Yon-eH-20M"/>
                                                 <constraint firstAttribute="bottom" secondItem="VUO-Sm-JK9" secondAttribute="bottom" constant="5" id="cFp-2W-7ZU"/>
@@ -70,6 +79,7 @@
                                         <size key="customSize" width="414" height="250"/>
                                         <connections>
                                             <outlet property="mealImageView" destination="VUO-Sm-JK9" id="HnK-7U-Bp3"/>
+                                            <outlet property="mealTitleLabel" destination="25j-NG-CbT" id="pgd-dX-pRF"/>
                                             <outlet property="mealTypeLabel" destination="s2W-4u-bHo" id="5hq-4S-jMZ"/>
                                         </connections>
                                     </collectionViewCell>

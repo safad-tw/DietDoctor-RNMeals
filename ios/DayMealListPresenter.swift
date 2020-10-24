@@ -7,21 +7,21 @@
 
 import Foundation
 
-protocol MealListPresenterProtocol {
+protocol DayMealListPresenterProtocol {
   func showDayMealPlan(_ dayMealPlan: DayMealPlan?)
 }
 
-class MealListPresenter {
+class DayMealListPresenter {
   
-  var view:MealListViewControllerProtocol?
+  var view:DayMealListViewControllerProtocol?
   
-  init(view: MealListViewControllerProtocol) {
+  init(view: DayMealListViewControllerProtocol) {
     self.view = view
   }
   
 }
 
-extension MealListPresenter: MealListPresenterProtocol {
+extension DayMealListPresenter: DayMealListPresenterProtocol {
   
   func showDayMealPlan(_ dayMealPlan: DayMealPlan?)  {
     self.view?.showDayMealPlan(dayMealPlan)
