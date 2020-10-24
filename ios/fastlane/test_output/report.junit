@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='RNMealsTests.xctest' tests='8' failures='0'>
+  <testsuite name='RNMealsTests.DayMealPlanSpec' tests='7' failures='0'>
+    <testcase classname='RNMealsTests.DayMealPlanSpec' name='Spec_for_DayMealPlan_Model__should_convert_dictionary_object_to_sunday_day_meal_object' time='0.004'/>
+    <testcase classname='RNMealsTests.DayMealPlanSpec' name='Spec_for_DayMealPlan_Model__should_convert_dictionary_object_to_sunday_day_meal_should_contain_name' time='0.001'/>
+    <testcase classname='RNMealsTests.DayMealPlanSpec' name='Spec_for_DayMealPlan_Model__should_convert_dictionary_object_to_sunday_day_meal_should_contain_dinner' time='0.001'/>
+    <testcase classname='RNMealsTests.DayMealPlanSpec' name='Spec_for_DayMealPlan_Model__should_convert_dictionary_object_to_sunday_day_meal_should_contain_lunch' time='0.001'/>
+    <testcase classname='RNMealsTests.DayMealPlanSpec' name='Spec_for_DayMealPlan_Model__should_convert_dictionary_object_to_sunday_day_meal_should_contain_dinner_recipiedetails' time='0.001'/>
+    <testcase classname='RNMealsTests.DayMealPlanSpec' name='Spec_for_DayMealPlan_Model__should_convert_dictionary_object_to_sunday_day_meal_should_contain_dinner_recipiedetails_image' time='0.001'/>
+    <testcase classname='RNMealsTests.DayMealPlanSpec' name='Spec_for_DayMealPlan_Model__should_convert_dictionary_object_to_sunday_day_meal_should_contain_lunch_recipiedetails' time='0.001'/>
+  </testsuite>
+  <testsuite name='RNMealsTests.NavigationSpec' tests='1' failures='0'>
+    <testcase classname='RNMealsTests.NavigationSpec' name='Spec_for_Navigation__should_return_day_meal_plan_list_view_controller_when_we_pass_right_props' time='0.003'/>
+  </testsuite>
+</testsuites>

@@ -11,8 +11,11 @@ target 'RNMeals' do
   pod 'Kingfisher'
   target 'RNMealsTests' do
     inherit! :complete
+    pod 'Quick'
+    pod 'Nimble'
     # Pods for testing
   end
+  
 
   # Enables Flipper.
   #

@@ -1,0 +1,38 @@
+{
+                        "name": "sunday0",
+                        "dinner": {
+                            "active": false,
+                            "recipesDetails": [
+                                {
+                                    "id": "wp-us-recipe-4791776",
+                                    "title": "Italian keto chicken parmesan with cabbage pasta",
+                                    "images": {
+                                        "hz": "/wp-content/uploads/2019/10/Chicken-parmesan-h2.jpg",
+                                        "vt": "/wp-content/uploads/2019/10/Chicken-parmesan-v2.jpg"
+                                    }
+                                }
+                            ]
+                        },
+                        "lunch": {
+                            "active": false,
+                            "recipesDetails": []
+                        },
+                        "nutrition": {
+                            "values": {
+                                "carbs": 8.81,
+                                "fat": 80.06,
+                                "protein": 42.14,
+                                "fiber": 2.94,
+                                "calories": 929.2
+                            },
+                            "percentages": {
+                                "carbs": 3.81,
+                                "fat": 77.95,
+                                "protein": 18.23
+                            }
+                        },
+                        "strictness": {
+                            "rating": "keto",
+                            "value": 1
+                        }
+                    }

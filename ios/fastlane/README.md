@@ -21,6 +21,11 @@ or alternatively using `brew install fastlane`
 fastlane ios custom_lane
 ```
 Description of what the lane does
+### ios unit_tests
+```
+fastlane ios unit_tests
+```
+
 ### ios Dev
 ```
 fastlane ios Dev

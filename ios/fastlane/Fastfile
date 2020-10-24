@@ -21,6 +21,10 @@ platform :ios do
     # add actions here: https://docs.fastlane.tools/actions
   end
 
+lane :unit_tests do
+  run_tests(scheme: "RNMealsTests")
+end
+
 lane :Dev do |options|
 
 get_certificates(username:options[:email])          

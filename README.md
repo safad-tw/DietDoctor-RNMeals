@@ -59,6 +59,18 @@ sh ./scripts/ios_appstore_ipa.sh <apple_account_email> <api_token> <owner_name> 
 sh ./scripts/android_dev_apk.sh <store_password> <alias_password> <appcenter_api_token> <appcenter_team_name> <appcenter_app_name>
  ```
  
+ # iOS Unit testing using quick and nimble
+  - Used fastlabe action to run unit tests
+  - To Run unit test, open RNMeals.xcworkspace file and run 
+  ```
+ command+u
+ ```
+  OR
+  - Run following command line To run unit tests using fastlane
+ ```sh
+ cd ios && fastlane unit_tests
+  ```
+ 
  # E2E testing using detox
  - Used detox to run E2E test
  - All test files are in e2e folder

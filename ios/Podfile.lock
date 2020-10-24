@@ -70,9 +70,11 @@ PODS:
   - Kingfisher (5.15.6):
     - Kingfisher/Core (= 5.15.6)
   - Kingfisher/Core (5.15.6)
+  - Nimble (9.0.0)
   - OpenSSL-Universal (1.0.2.20):
     - OpenSSL-Universal/Static (= 1.0.2.20)
   - OpenSSL-Universal/Static (1.0.2.20)
+  - Quick (3.0.0)
   - RCTRequired (0.63.3)
   - RCTTypeSafety (0.63.3):
     - FBLazyVector (= 0.63.3)
@@ -329,6 +331,8 @@ DEPENDENCIES:
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - Kingfisher
+  - Nimble
+  - Quick
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
   - React (from `../node_modules/react-native/`)
@@ -366,7 +370,9 @@ SPEC REPOS:
     - Flipper-RSocket
     - FlipperKit
     - Kingfisher
+    - Nimble
     - OpenSSL-Universal
+    - Quick
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -440,7 +446,9 @@ SPEC CHECKSUMS:
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
   Kingfisher: b3554e7bf6106115b44e8795300bad580ef2fdc7
+  Nimble: 3b4ec3fd40f1dc178058e0981107721c615643d8
   OpenSSL-Universal: ff34003318d5e1163e9529b08470708e389ffcdd
+  Quick: 6d9559f40647bc4d510103842ef2fdd882d753e2
   RCTRequired: 48884c74035a0b5b76dbb7a998bd93bcfc5f2047
   RCTTypeSafety: edf4b618033c2f1c5b7bc3d90d8e085ed95ba2ab
   React: f36e90f3ceb976546e97df3403e37d226f79d0e3
@@ -464,6 +472,6 @@ SPEC CHECKSUMS:
   Yoga: 7d13633d129fd179e01b8953d38d47be90db185a
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: d60d1b0f67061125f7cf8e114da775095aabd9e3
+PODFILE CHECKSUM: 25d4232f3189ce574e48d9282d782f6ded1c91f4
 
 COCOAPODS: 1.9.0
