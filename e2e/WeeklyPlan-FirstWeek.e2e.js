@@ -31,7 +31,7 @@ describe('MealPlans - Week1', () => {
 
   it('should right swipe a meal plan and tap', async () => {
     await expect(element(by.id('wp-us-mealplan-4826636'))).toBeVisible();
-    await element(by.id('wp-us-mealplan-4826636')).swipe('right', 'slow', 0.05)
+    await element(by.id('wp-us-mealplan-4826636')).swipe('left', 'slow', 0.05)
     await element(by.id('wp-us-mealplan-4826636')).tap();
     await element(by.traits(['button']))
       .atIndex(0)
@@ -40,8 +40,8 @@ describe('MealPlans - Week1', () => {
 
   it('should user be able to swipe left and view the meal plan', async () => {
     await expect(element(by.id('wp-us-mealplan-4826636'))).toBeVisible();
-    await element(by.id('wp-us-mealplan-4826636')).swipe('right', 'slow', 0.05)
     await element(by.id('wp-us-mealplan-4826636')).swipe('left', 'slow', 0.05)
+    await element(by.id('wp-us-mealplan-4826636')).swipe('right', 'slow', 0.05)
     await element(by.id('wp-us-mealplan-4826636')).tap();
     await element(by.traits(['button']))
       .atIndex(0)
