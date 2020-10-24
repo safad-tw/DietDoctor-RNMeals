@@ -6,7 +6,7 @@ class DayMealPlan extends React.Component {
     render() {
       const {item} = this.props
       return (
-        <View style={styles.mealContainer}>
+        <View style={styles.mealContainer} testID={item.id}>
           <DayMealCarousel schedule={item.schedule}/>
           <Text style={styles.title}>{item.title}</Text>
         </View>

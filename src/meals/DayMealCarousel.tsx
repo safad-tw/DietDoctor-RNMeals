@@ -32,7 +32,7 @@ class DayMealCarousel extends  React.Component<Props, State> {
     _renderItem(data:any){
         return (
         <TouchableOpacity onPress={ () =>  navigateTo({'screenName': 'DayMealPlan','data':data.item})}> 
-          <View style={styles.carouselContainer}>
+          <View style={styles.carouselContainer}  testID={data.item.name}>
             <ProgressiveImage
           source={{ uri: MealImageConstructor(data.item.dinner)}}
           style={styles.image}
