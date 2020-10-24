@@ -8,28 +8,38 @@ import {
 import {MealImageConstructor} from  '../common/ImageHelper'
 import Carousel from 'react-native-snap-carousel';
 
+export interface Props {
+  schedule:any
+}
 
-export default class DayMealCarousel extends React.Component {
+interface State {
+  activeIndex: number,
+  carouselItems:any,
+  carousel:any
+}
+
+class DayMealCarousel extends  React.Component<Props, State> {
    
-  constructor(props){
+  constructor(props: Props){
         super(props);
         this.state = {
+          carousel:null,
           activeIndex:0,
           carouselItems: this.props.schedule
       }
     }
 
-    _renderItem({item}){
+    _renderItem(data:any){
         return (
-        <TouchableOpacity onPress={ () =>  navigateTo({'screenName': 'DayMealPlan','data':item})}> 
+        <TouchableOpacity onPress={ () =>  navigateTo({'screenName': 'DayMealPlan','data':data.item})}> 
           <View style={styles.carouselContainer}>
             <ProgressiveImage
-          source={{ uri: MealImageConstructor(item.dinner)}}
+          source={{ uri: MealImageConstructor(data.item.dinner)}}
           style={styles.image}
           resizeMode="cover"
           />     
            <View style={styles.overlay} />
-          {item.dinner && <Text style={styles.title}>{item.name}</Text> }
+          {data.item.dinner && <Text style={styles.title}>{data.item.name}</Text> }
           </View>
           </TouchableOpacity>
         )
@@ -40,7 +50,7 @@ export default class DayMealCarousel extends React.Component {
             <View style={styles.carouselView}>
                 <Carousel
                   layout={"stack"}
-                  ref={ref => this.carousel = ref}
+                  ref={ref => console.log(ref)}
                   data={this.state.carouselItems}
                   sliderWidth={ Math.round(Dimensions.get('window').width - 20)}
                   itemWidth={ Math.round(Dimensions.get('window').width - 20)}
@@ -59,7 +69,6 @@ const styles = StyleSheet.create({
     },
     carouselContainer: {
         top: 30, 
-        backgroundColor:'#00BCD4',
         height: 300,
         backgroundColor: 'white',
         margin:5
@@ -89,3 +98,5 @@ const styles = StyleSheet.create({
        color:'white'
      }
   })
+
+  export default DayMealCarousel;

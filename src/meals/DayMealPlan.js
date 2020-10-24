@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {View, Text,StyleSheet } from 'react-native';
 import DayMealCarousel from './DayMealCarousel'
 
-class DayMealPlan extends Component {
+class DayMealPlan extends React.Component {
     render() {
       const {item} = this.props
       return (
