@@ -32,6 +32,7 @@ Follow these steps to setup the project
 - git clone git@github.com:safad-tw/DietDoctor-RNMeals.git
 - Install and configure the dependencies; 
 - Open the Command Prompt and run: 
+
 - Run on iOS simulator
 ```sh
 sh ./scripts/run_ios.sh
