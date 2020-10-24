@@ -60,7 +60,7 @@ sh ./scripts/android_dev_apk.sh <store_password> <alias_password> <appcenter_api
  ```
  
  # iOS Unit testing using quick and nimble
-  - Used fastlabe action to run unit tests
+  - Used quick and nimble framework to run unit tests on ios.
   - To Run unit test, open RNMeals.xcworkspace file and run 
   ```
  command+u
