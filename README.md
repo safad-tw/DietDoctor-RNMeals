@@ -6,6 +6,7 @@
 
  - Designed first screen using react-native and second screen using swift UIKit framework.
  - RCTBridgeModule used to pass data from RN to swift class eg: Refer NavigationModule.m in ios folder.
+ ![alt tag](https://github.com/safad-tw/DietDoctor-RNMeals/blob/main/RN%20%26%20IOS%20Communication.png)
 
 #### React Native
  - Used javascript(.js) and typescript(.tsx) to create class and function       component
