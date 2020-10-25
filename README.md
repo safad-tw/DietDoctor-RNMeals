@@ -19,7 +19,7 @@ Each Module Will have its own folder. eg -
  - DayMealListInteractor 
  - DayMealPlan 
  - View, Service,Model, Utils etc each will have its own folder 
- ![Screenshot](iOS-VIP-Architecture diagram.png)
+ ![alt tag](https://github.com/safad-tw/DietDoctor-RNMeals/blob/main/iOS-VIP-Architecture%20diagram.png)
  
 # Prerequisites
 
